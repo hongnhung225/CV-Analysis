@@ -1,0 +1,20 @@
+# Bỏ qua các tệp Python bytecode
+*.pyc
+__pycache__/
+
+# Bỏ qua các tệp môi trường ảo
+venv/
+env/
+
+# Bỏ qua các tệp cơ sở dữ liệu SQLite
+*.sqlite3
+
+# Bỏ qua các tệp tạm thời của hệ điều hành
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Bỏ qua các tệp tĩnh được tạo bởi Django
+staticfiles/
+media/
