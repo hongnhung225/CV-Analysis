@@ -21,6 +21,8 @@ class AuthUserAPIView(GenericAPIView):
 
 class RegisterAPIView(GenericAPIView):
     serializer_class = RegisterSerializer
+    authentication_classes = ()
+
     def post(self, request):
         serializers = self.get_serializer(data=request.data)
 
@@ -32,6 +34,8 @@ class RegisterAPIView(GenericAPIView):
 
 class LoginAPIView(GenericAPIView):
     serializer_class = LoginSerializer
+    authentication_classes = ()
+    
     def post(self, request):
         data = request.data
         email = data.get('email', None)

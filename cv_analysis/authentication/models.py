@@ -10,7 +10,7 @@ class User(AbstractUser):
         ('hr', 'HR'),
         ('cand', 'Candidate'),
     )
-    role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='user')
+    role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='cand')
 
     @property
     def token(self):
