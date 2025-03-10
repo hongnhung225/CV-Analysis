@@ -7,7 +7,6 @@ from django.contrib.auth import authenticate
 import jwt
 from django.conf import settings
 from .models import User
-# Create your views here.
 
 
 class AuthUserAPIView(GenericAPIView):
@@ -39,16 +38,7 @@ class LoginAPIView(GenericAPIView):
     def post(self, request):
         data = request.data
         email = data.get('email', None)
-        username = data.get('username', None)
         password = data.get('password', None)
-        
-        user = authenticate(username=username, password=password)
-        print(user, email, password)
-
-        if user:
-            serializer = self.serializer_class(user)
-            return response.Response(serializer.data, status=status.HTTP_200_OK)
-        return response.Response({'message': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
         user = User.objects.get(email=email)
         if user:
