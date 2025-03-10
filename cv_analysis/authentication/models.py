@@ -3,9 +3,11 @@ from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 import jwt
 from datetime import datetime, timedelta
-# Create your models here.
+import uuid
 
 class User(AbstractUser):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
     ROLE_CHOICES = (
         ('hr', 'HR'),
         ('cand', 'Candidate'),
